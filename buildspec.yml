@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+  pre_build:
+    commands:
+      - echo Running tests...
+      - npm test
+  build:
+    commands:
+      - echo Building the Node.js application...
+      - npm run build
+
+artifacts:
+  files:
+    - "**/*"
+  base-directory: "build" # or whatever directory your build outputs to, if applicable
